@@ -1,8 +1,8 @@
 package streams;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
+import java.util.stream.*;
+
 
 public class streams {
     public static void main(String[] args) {
@@ -28,6 +28,22 @@ public class streams {
         List<String> result = strings.stream().limit(3).collect(Collectors.toList());
         System.out.println("Result : "+result);
 
+
+        List<String> items= Arrays.asList("Fruits", "Chips");
+
+        items.forEach(item-> System.out.println(item));
+        items.forEach(item-> System.out.println(item.toLowerCase()));
+        //System.out.println(items.sort());
+
+
+//list of is modern way of initialising list from java 9  
+        List<String> items2= List.of("fruits2","chips2", "rishabh","india");
+        items2.forEach(item-> System.out.println(item));
+
+        List<String> result2 = items2.stream().filter(i -> i.startsWith("i")).collect(Collectors.toList());
+        result2.forEach(item-> System.out.println("Filtered "+item));
+
+    }
     }
 
 
@@ -36,4 +52,4 @@ public class streams {
 
 
 
-}
+
