@@ -25,6 +25,7 @@ public class CountPair {
         int pairs=0;
         for(int i=0;i<n;i++){          //loop to fix one element and then nested loop to traverse and add other elements to check if sum is equal to target
             for(int j=i+1;j<n;j++){
+
                 if(arr[i]+arr[j]==target){
                     pairs++;
                     System.out.println(arr[i]+","+arr[j]);

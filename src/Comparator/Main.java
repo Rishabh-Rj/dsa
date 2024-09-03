@@ -21,5 +21,8 @@ public class Main {
         // Sort by BPM using lambda expression
         songs.sort((s1, s2) -> Integer.compare(s1.getBpm(), s2.getBpm()));
         System.out.println("Sorted by BPM: " + songs);
+
+        songs.sort((s1, s2) -> s2.getTitle().length() - s1.getTitle().length());
+        System.out.println("Sorted by Title length: " + songs);
     }
 }

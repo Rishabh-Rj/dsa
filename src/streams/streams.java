@@ -43,6 +43,9 @@ public class streams {
         List<String> result2 = items2.stream().filter(i -> i.startsWith("i")).collect(Collectors.toList());
         result2.forEach(item-> System.out.println("Filtered "+item));
 
+        //lambda
+        List<String> result3= items2.stream().sorted((s1, s2) -> s2.length() - s1.length()).collect(Collectors.toList());
+        System.out.println("Sorted by length: " + result3);
     }
     }
 
