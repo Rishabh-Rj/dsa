@@ -1,5 +1,7 @@
 package Rough;
+
 import java.util.Random;
+
 public class SudokuGenerator {
     private SudokuSolver solver;
     private Random random;
@@ -10,10 +12,10 @@ public class SudokuGenerator {
     }
 
     public void generate(SudokuBoard board, int emptyCells) {
-        // First, solve the board to fill it
+        // Solve the board first
         solver.solve(board);
 
-        // Now, randomly remove numbers to create the puzzle
+        // Remove numbers to create the puzzle
         for (int i = 0; i < emptyCells; i++) {
             int row = random.nextInt(9);
             int col = random.nextInt(9);
@@ -21,7 +23,7 @@ public class SudokuGenerator {
                 row = random.nextInt(9);
                 col = random.nextInt(9);
             }
-            board.set(row, col, 0);
+            board.set(row, col, '.');
         }
     }
 }

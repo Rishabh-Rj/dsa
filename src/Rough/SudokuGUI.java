@@ -37,7 +37,7 @@ public class SudokuGUI {
             for (int col = 0; col < SIZE; col++) {
                 cells[row][col] = new JTextField();
                 cells[row][col].setHorizontalAlignment(JTextField.CENTER);
-                cells[row][col].setFont(new Font("Arial", Font.BOLD, 24)); // Increased font size and made it bold
+                cells[row][col].setFont(new Font("Arial", Font.BOLD, 24));
                 cells[row][col].setBorder(thinBorder);
 
                 // Add thick borders to separate 3x3 subgrids
@@ -104,9 +104,9 @@ public class SudokuGUI {
             for (int col = 0; col < SIZE; col++) {
                 String text = cells[row][col].getText();
                 if (text.isEmpty()) {
-                    board.set(row, col, 0);
+                    board.set(row, col, '.');
                 } else {
-                    board.set(row, col, Integer.parseInt(text));
+                    board.set(row, col, text.charAt(0));
                 }
             }
         }
@@ -115,9 +115,9 @@ public class SudokuGUI {
     private void updateBoard() {
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {
-                int value = board.get(row, col);
+                char value = board.get(row, col);
                 JTextField cell = cells[row][col];
-                if (value != 0) {
+                if (value != '.') {
                     cell.setText(String.valueOf(value));
                     cell.setForeground(isBaseNumber[row][col] ? Color.BLACK : Color.RED);
                 } else {
@@ -131,9 +131,9 @@ public class SudokuGUI {
     private void updateBoardWithSolution() {
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {
-                int value = board.get(row, col);
+                char value = board.get(row, col);
                 JTextField cell = cells[row][col];
-                if (value != 0 && !isBaseNumber[row][col]) {
+                if (value != '.' && !isBaseNumber[row][col]) {
                     cell.setText(String.valueOf(value));
                     cell.setForeground(Color.RED); // Solved numbers in red
                 }
@@ -144,7 +144,7 @@ public class SudokuGUI {
     private void markBaseNumbers() {
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {
-                isBaseNumber[row][col] = board.get(row, col) != 0;
+                isBaseNumber[row][col] = board.get(row, col) != '.';
             }
         }
     }
