@@ -2,6 +2,7 @@ package streams;
 
 import java.util.*;
 import java.util.stream.*;
+import java.util.function.Predicate;
 
 
 public class streams {
@@ -46,6 +47,23 @@ public class streams {
         //lambda
         List<String> result3= items2.stream().sorted((s1, s2) -> s2.length() - s1.length()).collect(Collectors.toList());
         System.out.println("Sorted by length: " + result3);
+
+
+
+
+
+
+
+
+
+
+
+        //Predicate and filtering using streams
+        List<Integer> nums = List.of(1,2,3,4,5);
+        Predicate<Integer> isEven = n-> n % 2 ==0;
+        List<Integer> evenNum= nums.stream().filter(isEven).collect(Collectors.toList());
+        System.out.println("Even List using predicate and streams "+evenNum);
+
     }
     }
 
